@@ -1,6 +1,9 @@
-import HomePage from './homepage'
+import { useContext } from 'react'
+import { SpotifyContext } from '../context/context'
+import Login from '../components/login'
 
 export default function Home() {
+  const { updateProgress, updateVolume } = useContext(SpotifyContext)
   return (
     <div>
       <audio
@@ -10,8 +13,7 @@ export default function Home() {
         onVolumeChange={e => updateVolume(e)}
         onTimeUpdate={e => updateProgress(e)}
       />
-      <HomePage />
-      {/* temporarily render homepage before you build Login */}
+      <Login />
     </div>
   )
 }
